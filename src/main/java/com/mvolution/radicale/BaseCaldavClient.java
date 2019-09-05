@@ -5,13 +5,15 @@ import com.github.caldav4j.CalDAVCollection;
 import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.github.caldav4j.model.request.CalendarQuery;
 import com.github.caldav4j.util.GenerateQuery;
-import net.fortuna.ical4j.model.Calendar;
-import net.fortuna.ical4j.model.Component;
-import net.fortuna.ical4j.model.ComponentList;
+import net.fortuna.ical4j.model.*;
 import net.fortuna.ical4j.model.component.VEvent;
+import net.fortuna.ical4j.model.component.VTimeZone;
+import net.fortuna.ical4j.model.property.DtStart;
+import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -20,6 +22,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 
@@ -33,12 +37,7 @@ public class BaseCaldavClient {
     @Test
     public void printAllEntries() throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet(this.uri);
-        CloseableHttpResponse httpStatResponse = httpClient.execute(httpGet);
-        try {
-            LOG.debug("HTTP-Status Code: ---> " + httpStatResponse.getStatusLine().toString());
-            HttpEntity entity1 = httpStatResponse.getEntity();
-            LOG.info(entity1.getContent().toString());
+        try  {
             GenerateQuery gq = new GenerateQuery();
             CalendarQuery calQ = gq.generate();
 
@@ -53,11 +52,26 @@ public class BaseCaldavClient {
                     LOG.info("\nEvent-Nr.: --->[ " + eventCounter++ + " ]<--- \n" + ve.toString());
                 }
             }
-            EntityUtils.consume(entity1);
         } catch (CalDAV4JException e) {
             e.printStackTrace();
-        } finally {
-            httpStatResponse.close();
+        }
+    }
+
+    @Test
+    public void createAllDayEvent() {
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+
+        try {
+             CalDAVCollection collection = new CalDAVCollection(this.uri);
+
+             Date start = new Date("20190920");
+             VEvent testEvent = new VEvent(start, "the first testing of an created event");
+
+             collection.add(httpClient, testEvent, null);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
