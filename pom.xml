@@ -33,6 +33,7 @@
         <jcache.version>1.0.0</jcache.version>
         <ehcache.version>3.8.0</ehcache.version>
         <javaxmail.version>1.6.2</javaxmail.version>
+        <jsonlib.version>20190722</jsonlib.version>
 
     </properties>
 
@@ -149,6 +150,15 @@
             <artifactId>javax.mail-api</artifactId>
             <version>${javaxmail.version}</version>
         </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${jsonlib.version}</version>
+        </dependency>
+
 
 
 
