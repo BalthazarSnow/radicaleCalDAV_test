@@ -5,25 +5,16 @@ import com.github.caldav4j.CalDAVCollection;
 import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.github.caldav4j.model.request.CalendarQuery;
 import com.github.caldav4j.util.GenerateQuery;
-import net.fortuna.ical4j.model.*;
+import net.fortuna.ical4j.model.Calendar;
+import net.fortuna.ical4j.model.Component;
+import net.fortuna.ical4j.model.ComponentList;
+import net.fortuna.ical4j.model.Date;
 import net.fortuna.ical4j.model.component.VEvent;
-import net.fortuna.ical4j.model.component.VTimeZone;
-import net.fortuna.ical4j.model.property.DtStart;
-import org.apache.commons.io.IOUtils;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 // a class to communicate with the CalDAV-Server and send requests using REST-API
@@ -36,7 +27,7 @@ public class BaseCaldavClient {
     private String uri = DEFAULT_URI;
 
     // empty constructor
-    public BaseCaldavClient() {    }
+    BaseCaldavClient() {    }
     /* constructor
     * @param uri - the uri to the desired calendar collection*/
     public BaseCaldavClient(String uri) {
@@ -44,8 +35,7 @@ public class BaseCaldavClient {
     }
 
     // method that prints all entries from the given calendar-path
-    @Test
-    public void printAllEntries() {
+    void printAllEntries() {
         // instantiate a HTTP-Client Object with default credentials
         CloseableHttpClient httpClient = HttpClients.createDefault();
         try  {
@@ -75,8 +65,7 @@ public class BaseCaldavClient {
     /* a method to create and save an all day-event to our calendar
     * @param date - the desired date for the event
     * @param summary - the summary of our event*/
-    @Test
-    public void createAllDayEvent(String date, String summary) {
+    void createAllDayEvent(String date, String summary) {
         // instantiate a HTTP-Client Object with default credentials
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
