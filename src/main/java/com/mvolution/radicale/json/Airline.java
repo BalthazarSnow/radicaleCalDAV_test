@@ -3,8 +3,9 @@ package com.mvolution.radicale.json;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**This class represents an Airline for metaplanner flight-events. */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Airline extends TypedEntity {
+class Airline extends TypedEntity {
     @JsonProperty(value = "@managed")
     private boolean managed;
     private String iata;
@@ -14,51 +15,51 @@ public class Airline extends TypedEntity {
     private String url;
 
 
-    public boolean isManaged() {
+    boolean isManaged() {
         return managed;
     }
 
-    public void setManaged(boolean managed) {
+    void setManaged(boolean managed) {
         this.managed = managed;
     }
 
-    public String getIata() {
+    String getIata() {
         return iata;
     }
 
-    public void setIata(String iata) {
+    void setIata(String iata) {
         this.iata = iata;
     }
 
-    public String getIcao() {
+    String getIcao() {
         return icao;
     }
 
-    public void setIcao(String icao) {
+    void setIcao(String icao) {
         this.icao = icao;
     }
 
-    public String getLogoUrl() {
+    String getLogoUrl() {
         return logoUrl;
     }
 
-    public void setLogoUrl(String logoUrl) {
+    void setLogoUrl(String logoUrl) {
         this.logoUrl = logoUrl;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
-    public String getUrl() {
+    String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
+    void setUrl(String url) {
         this.url = url;
     }
 }

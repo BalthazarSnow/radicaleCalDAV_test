@@ -2,13 +2,14 @@ package com.mvolution.radicale.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
+
 import java.io.IOException;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 import static org.junit.Assert.*;
 
-public class TestFlightDeserialisation {
+public class TestFlightDeserialization {
 
     @Test
     public void deserializeFlight() throws IOException {
@@ -59,6 +60,7 @@ public class TestFlightDeserialisation {
         assertEquals("721", String.valueOf(flight.getFlightNumber()));
         assertEquals("d8b9b992-209f-11e9-bab5-02420a000060", flight.getGroupId());
         assertEquals("d8b94462-209f-11e9-bab5-02420a000060", flight.getId());
+
             // ASSERTION TESTS OPERATING AIRLINE PROPERTIES
             assertEquals("Airline", flight.getOperatingAirline().getType());
             assertEquals("true", String.valueOf(flight.getOperatingAirline().isManaged()));
@@ -67,6 +69,7 @@ public class TestFlightDeserialisation {
             assertEquals("https://s1.apideeplink.com/images/airlines/LH.png", flight.getOperatingAirline().getLogoUrl());
             assertEquals("Lufthansa", flight.getOperatingAirline().getName());
             assertEquals("http://www.lufthansa.com", flight.getOperatingAirline().getUrl());
+
             // ASSERTION TESTS DESTINATION PROPERTIES
             assertEquals("Airport", flight.getOrigin().getType());
             assertEquals("true", String.valueOf(flight.getOrigin().isManaged()));
@@ -80,7 +83,9 @@ public class TestFlightDeserialisation {
             assertEquals("true", String.valueOf(flight.getOrigin().isResolved()));
             assertEquals("Asia/Shanghai", String.valueOf(flight.getOrigin().getTimeZone()));
             assertEquals("http://en.bcia.com.cn/", flight.getOrigin().getWebsite());
+
         assertEquals("1", String.valueOf(flight.getPersons()));
+
             // ASSERTION TESTS SERVICE PROVIDER PROPERTIES
             assertEquals("Airline", flight.getServiceProvider().getType());
             assertEquals("true", String.valueOf(flight.getServiceProvider().isManaged()));
@@ -89,6 +94,7 @@ public class TestFlightDeserialisation {
             assertEquals("https://s1.apideeplink.com/images/airlines/LH.png", flight.getServiceProvider().getLogoUrl());
             assertEquals("Lufthansa", flight.getOperatingAirline().getName());
             assertEquals("http://www.lufthansa.com", flight.getOperatingAirline().getUrl());
+
         ZonedDateTime testStart = ZonedDateTime.of(2019,2,4,3,20,0,0, ZoneId.of("Z"));
         assertEquals(testStart, flight.getStart());
         assertEquals("Asia/Shanghai", String.valueOf(flight.getStartTimeZone()));

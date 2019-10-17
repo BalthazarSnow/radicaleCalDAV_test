@@ -1,16 +1,11 @@
 package com.mvolution.radicale.json;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.mvolution.radicale.BaseCaldavClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+/**This class represents the booking information for metaplanner flight-events. */
+// JSON annotation to ignore unknown properties
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingInfo extends TypedEntity {
-
-    // object for logging the events of this class
-    private final Logger LOG = LoggerFactory.getLogger(BookingInfo.class);
 
     private boolean booked;
     private String bookingURL;
@@ -18,7 +13,7 @@ public class BookingInfo extends TypedEntity {
     private  double price;
     private boolean priceEstimated;
 
-    public boolean isBooked() {
+    boolean isBooked() {
         return booked;
     }
 
@@ -26,7 +21,7 @@ public class BookingInfo extends TypedEntity {
         this.booked = booked;
     }
 
-    public String getBookingURL() {
+    String getBookingURL() {
         return bookingURL;
     }
 
@@ -34,7 +29,7 @@ public class BookingInfo extends TypedEntity {
         this.bookingURL = bookingURL;
     }
 
-    public String getCurrency() {
+    String getCurrency() {
         return currency;
     }
 
@@ -42,7 +37,7 @@ public class BookingInfo extends TypedEntity {
         this.currency = currency;
     }
 
-    public double getPrice() {
+    double getPrice() {
         return price;
     }
 
@@ -50,7 +45,7 @@ public class BookingInfo extends TypedEntity {
         this.price = price;
     }
 
-    public boolean isPriceEstimated() {
+    boolean isPriceEstimated() {
         return priceEstimated;
     }
 

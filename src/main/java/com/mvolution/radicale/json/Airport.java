@@ -6,8 +6,9 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.time.ZoneId;
 
+/**This class represents an Airport for metaplanner flight-events. */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Airport extends TypedEntity {
+class Airport extends TypedEntity {
     @JsonProperty(value = "@managed")
     private boolean managed;
 
@@ -17,97 +18,99 @@ public class Airport extends TypedEntity {
     private String country;
     private String iata;
     private String website;
+    private String gate;
+    private int terminal;
     @JsonDeserialize(using = ZoneIdDeserializer.class)
     private ZoneId timeZone;
     private double latitude;
     private double longitude;
     private boolean resolved;
 
-    public boolean isManaged() {
+    boolean isManaged() {
         return managed;
     }
 
-    public void setManaged(boolean managed) {
+    void setManaged(boolean managed) {
         this.managed = managed;
     }
 
-    public String getAirportType() {
+    String getAirportType() {
         return airportType;
     }
 
-    public void setAirportType(String airportType) {
+    void setAirportType(String airportType) {
         this.airportType = airportType;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
-    public String getCity() {
+    String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    void setCity(String city) {
         this.city = city;
     }
 
-    public String getCountry() {
+    String getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    void setCountry(String country) {
         this.country = country;
     }
 
-    public String getIata() {
+    String getIata() {
         return iata;
     }
 
-    public void setIata(String iata) {
+    void setIata(String iata) {
         this.iata = iata;
     }
 
-    public String getWebsite() {
+    String getWebsite() {
         return website;
     }
 
-    public void setWebsite(String website) {
+    void setWebsite(String website) {
         this.website = website;
     }
 
-    public ZoneId getTimeZone() {
+    ZoneId getTimeZone() {
         return timeZone;
     }
 
-    public void setTimeZone(ZoneId timeZone) {
+    void setTimeZone(ZoneId timeZone) {
         this.timeZone = timeZone;
     }
 
-    public double getLatitude() {
+    double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public boolean isResolved() {
+    boolean isResolved() {
         return resolved;
     }
 
-    public void setResolved(boolean resolved) {
+    void setResolved(boolean resolved) {
         this.resolved = resolved;
     }
 }

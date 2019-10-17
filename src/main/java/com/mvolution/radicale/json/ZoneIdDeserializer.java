@@ -4,9 +4,12 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+
 import java.io.IOException;
 import java.time.ZoneId;
 
+/** A class to deserialize the ZoneId-Object
+ * @see com.mvolution.radicale.json.Flight*/
 public class ZoneIdDeserializer extends StdDeserializer<ZoneId> {
 
     @SuppressWarnings("unused")

@@ -3,9 +3,11 @@ package com.mvolution.radicale.json;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-
+/**This class represents a flight for metaplanner-events*/
+// JSON annotation to ignore unknown properties
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Flight extends TypedEntity {
     @JsonProperty(value = "@calendarId")
@@ -27,16 +29,16 @@ public class Flight extends TypedEntity {
     private String title;
     private boolean allDay;
     private String cabinClass;
-
     private String checkinUrl;
-
     private double distanceKm;
     private int flightNumber;
     private int persons;
 
-    // flight specific objects
+    //flight specific objects
+    // JSON annotation to use the ZonedDateTimeDeserializer-class
     @JsonDeserialize(using = ZonedDateTimeDeserializer.class)
     private ZonedDateTime start;
+    // JSON annotation to use the ZoneIdDeserializer-class
     @JsonDeserialize(using = ZoneIdDeserializer.class)
     private ZoneId startTimeZone;
     @JsonDeserialize(using = ZonedDateTimeDeserializer.class)
@@ -49,11 +51,14 @@ public class Flight extends TypedEntity {
     private Airline operatingAirline;
     private Airline serviceProvider;
 
+
+
+    // GETTER & SETTER
     String getCalendarId() {
         return calendarId;
     }
 
-    public void setCalendarId(String calendarId) {
+    void setCalendarId(String calendarId) {
         this.calendarId = calendarId;
     }
 
@@ -61,99 +66,99 @@ public class Flight extends TypedEntity {
         return provider;
     }
 
-    public void setProvider(String provider) {
+    void setProvider(String provider) {
         this.provider = provider;
     }
 
-    public String getArrivalTextColor() {
+    String getArrivalTextColor() {
         return arrivalTextColor;
     }
 
-    public void setArrivalTextColor(String arrivalTextColor) {
+    void setArrivalTextColor(String arrivalTextColor) {
         this.arrivalTextColor = arrivalTextColor;
     }
 
-    public String getDepartureTextColor() {
+    String getDepartureTextColor() {
         return departureTextColor;
     }
 
-    public void setDepartureTextColor(String departureTextColor) {
+    void setDepartureTextColor(String departureTextColor) {
         this.departureTextColor = departureTextColor;
     }
 
-    public String getStatusButtonBackgroundColor() {
+    String getStatusButtonBackgroundColor() {
         return statusButtonBackgroundColor;
     }
 
-    public void setStatusButtonBackgroundColor(String statusButtonBackgroundColor) {
+    void setStatusButtonBackgroundColor(String statusButtonBackgroundColor) {
         this.statusButtonBackgroundColor = statusButtonBackgroundColor;
     }
 
-    public String getStatusButtonTextColor() {
+    String getStatusButtonTextColor() {
         return statusButtonTextColor;
     }
 
-    public void setStatusButtonTextColor(String statusButtonTextColor) {
+    void setStatusButtonTextColor(String statusButtonTextColor) {
         this.statusButtonTextColor = statusButtonTextColor;
     }
 
-    public String getStatusButtonLabel() {
+    String getStatusButtonLabel() {
         return statusButtonLabel;
     }
 
-    public void setStatusButtonLabel(String statusButtonLabel) {
+    void setStatusButtonLabel(String statusButtonLabel) {
         this.statusButtonLabel = statusButtonLabel;
     }
 
-    public String getSymbol() {
+    String getSymbol() {
         return symbol;
     }
 
-    public void setSymbol(String symbol) {
+    void setSymbol(String symbol) {
         this.symbol = symbol;
     }
 
-    public String getGroupId() {
+    String getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(String groupId) {
+    void setGroupId(String groupId) {
         this.groupId = groupId;
     }
 
-    public String getId() {
+    String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    void setId(String id) {
         this.id = id;
     }
 
-    public String getTitle() {
+    String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    void setTitle(String title) {
         this.title = title;
     }
 
-    public boolean isAllDay() {
+    boolean isAllDay() {
         return allDay;
     }
 
-    public void setAllDay(boolean allDay) {
+    void setAllDay(boolean allDay) {
         this.allDay = allDay;
     }
 
-    public String getCabinClass() {
+    String getCabinClass() {
         return cabinClass;
     }
 
-    public void setCabinClass(String cabinClass) {
+    void setCabinClass(String cabinClass) {
         this.cabinClass = cabinClass;
     }
 
-    public String getCheckinUrl() {
+    String getCheckinUrl() {
         return checkinUrl;
     }
 
@@ -161,7 +166,7 @@ public class Flight extends TypedEntity {
         this.checkinUrl = checkinUrl;
     }
 
-    public double getDistanceKm() {
+    double getDistanceKm() {
         return distanceKm;
     }
 
@@ -169,7 +174,7 @@ public class Flight extends TypedEntity {
         this.distanceKm = distanceKm;
     }
 
-    public int getFlightNumber() {
+    int getFlightNumber() {
         return flightNumber;
     }
 
@@ -177,83 +182,85 @@ public class Flight extends TypedEntity {
         this.flightNumber = flightNumber;
     }
 
-    public int getPersons() {
+    int getPersons() {
         return persons;
     }
 
-    public void setPersons(int persons) {
+    void setPersons(int persons) {
         this.persons = persons;
     }
 
-    public ZonedDateTime getStart() {
+    ZonedDateTime getStart() {
         return start;
     }
 
-    public void setStart(ZonedDateTime start) {
+    void setStart(ZonedDateTime start) {
         this.start = start;
     }
 
-    public ZoneId getStartTimeZone() {
+    ZoneId getStartTimeZone() {
         return startTimeZone;
     }
 
-    public void setStartTimeZone(ZoneId startTimeZone) {
+    void setStartTimeZone(ZoneId startTimeZone) {
         this.startTimeZone = startTimeZone;
     }
 
-    public ZonedDateTime getEnd() {
+    ZonedDateTime getEnd() {
         return end;
     }
 
-    public void setEnd(ZonedDateTime end) {
+    void setEnd(ZonedDateTime end) {
         this.end = end;
     }
 
-    public ZoneId getEndTimeZone() {
+    ZoneId getEndTimeZone() {
         return endTimeZone;
     }
 
-    public void setEndTimeZone(ZoneId endTimeZone) {
+    void setEndTimeZone(ZoneId endTimeZone) {
         this.endTimeZone = endTimeZone;
     }
 
-    public BookingInfo getBookingInfo() {
+    BookingInfo getBookingInfo() {
         return bookingInfo;
     }
 
-    public void setBookingInfo(BookingInfo bookingInfo) {
+    void setBookingInfo(BookingInfo bookingInfo) {
         this.bookingInfo = bookingInfo;
     }
 
-    public Airport getDestination() {
+    Airport getDestination() {
         return destination;
     }
 
-    public void setDestination(Airport destination) {
+    void setDestination(Airport destination) {
         this.destination = destination;
     }
 
-    public Airport getOrigin() {
+    Airport getOrigin() {
         return origin;
     }
 
-    public void setOrigin(Airport origin) {
+    void setOrigin(Airport origin) {
         this.origin = origin;
     }
 
-    public Airline getOperatingAirline() {
+    Airline getOperatingAirline() {
         return operatingAirline;
     }
 
-    public void setOperatingAirline(Airline operatingAirline) {
+    void setOperatingAirline(Airline operatingAirline) {
         this.operatingAirline = operatingAirline;
     }
 
-    public Airline getServiceProvider() {
+    Airline getServiceProvider() {
         return serviceProvider;
     }
 
-    public void setServiceProvider(Airline serviceProvider) {
+    void setServiceProvider(Airline serviceProvider) {
         this.serviceProvider = serviceProvider;
     }
+
+
 }
