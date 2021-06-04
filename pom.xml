@@ -22,7 +22,7 @@
         <slf4j.version>1.7.25</slf4j.version>
         <ical4j.version>3.0.9</ical4j.version>
         <caldav4j.version>1.0.0-rc.2</caldav4j.version>
-        <httpclient.version>4.5.9</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <jackrabbitwebdav.version>2.19.4</jackrabbitwebdav.version>
         <backportutilconcurrent.version>3.1</backportutilconcurrent.version>
         <commonscodec.version>1.13</commonscodec.version>
